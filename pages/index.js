@@ -1,9 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
 import Banner from "../components/banner";
+import Card from "../components/card";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+import coffeeStoresData from "../data/coffee-store.json";
+
+export async function getStaticProps(context) {
+  return {
+    props: { coffeeStores: coffeeStoresData },
+  };
+}
+
+export default function Home(props) {
+  console.log({ props });
+  const { coffeeStores } =  props ;
+
   const handleOnBannerBtnClick = (e) => {
     console.log("Hi banner button");
   };
@@ -28,6 +40,24 @@ export default function Home() {
             height={400}
           />
         </div>
+        {coffeeStores.length > 0 && (
+          <>
+            <h2 className={styles.heading2}>Carolina Stores</h2>
+            <div className={styles.cardLayout}>
+              {coffeeStores.map((coffeeStore) => {
+                return (
+                  <Card
+                    name={coffeeStore.name}
+                    imgUrl={coffeeStore.imgUrl}
+                    href={`/coffee-store/${coffeeStore.id}`}
+                    key={coffeeStore.id}
+                    className={styles.card}
+                  />
+                );
+              })}
+            </div>
+          </>
+        )}
       </main>
     </div>
   );

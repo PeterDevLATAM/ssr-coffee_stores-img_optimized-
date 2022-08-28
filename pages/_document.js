@@ -1,13 +1,16 @@
-import Document, { Head , Main, Html, NextScript } from "next/document";
+import Document, { Head, Main, Html, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preload" href="/public/fonts/IBMPlexSans-Bold.ttf" as="font" crossOrigin="anonymous"/>
-          <link rel="preload" href="/public/fonts/IBMPlexSans-Regular.ttf" as="font" crossOrigin="anonymous"/>
-          <link rel="preload" href="/public/fonts/IBMPlexSans-SemiBold.ttf" as="font" crossOrigin="anonymous"/>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main></Main>

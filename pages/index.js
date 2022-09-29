@@ -34,14 +34,6 @@ export default function Home(props) {
           buttonText={"View stories nearby"}
           handleOnClick={handleOnBannerBtnClick}
         />
-        <div className={styles.heroImage}>
-          <Image
-            src="/static/hero-image.png"
-            alt="Hero"
-            width={700}
-            height={400}
-          />
-        </div>
         {coffeeStores.length > 0 && (
           <>
             <h2 className={styles.heading2}>Carolina Stores</h2>
